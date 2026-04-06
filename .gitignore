@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+*.egg-info/
+dist/
+build/
+*.db
+
+# Node
+node_modules/
+.next/
+.env.local
+.env.production
+npm-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+
+# Docker
+*.log

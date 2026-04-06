@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg: #0D0D1A;
+  --card: #13132A;
+  --card2: #1A1A35;
+  --border: #2A2A4A;
+  --purple: #7B6FE8;
+  --purple-light: #9B8FF8;
+  --text: #E2E2F0;
+  --muted: #7A7A9A;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: 'Syne', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.card-glow {
+  box-shadow: 0 0 0 1px rgba(123, 111, 232, 0.15), 0 4px 24px rgba(0,0,0,0.4);
+}
+
+.btn-purple {
+  background: linear-gradient(135deg, #7B6FE8, #6C5CE7);
+  transition: all 0.2s;
+}
+.btn-purple:hover {
+  background: linear-gradient(135deg, #9B8FF8, #7B6FE8);
+  transform: translateY(-1px);
+}
+.btn-purple:active {
+  transform: translateY(0);
+}
+
+.ring-track {
+  stroke: rgba(123, 111, 232, 0.15);
+}
+.ring-fill {
+  stroke: #7B6FE8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.8s ease;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.animate-stagger-1 { animation: fadeUp 0.4s ease 0.05s both; }
+.animate-stagger-2 { animation: fadeUp 0.4s ease 0.1s both; }
+.animate-stagger-3 { animation: fadeUp 0.4s ease 0.15s both; }
+.animate-stagger-4 { animation: fadeUp 0.4s ease 0.2s both; }
+.animate-stagger-5 { animation: fadeUp 0.4s ease 0.25s both; }
+.animate-stagger-6 { animation: fadeUp 0.4s ease 0.3s both; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes timerPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.timer-active {
+  animation: timerPulse 2s infinite;
+}
+
+.set-row-enter {
+  animation: fadeUp 0.25s ease forwards;
+}
+
+.progress-bar {
+  transition: width 0.6s ease;
+}
+
+.streak-glow {
+  box-shadow: 0 0 12px rgba(239, 159, 39, 0.4);
+}
+
+/* Safe area support for notched phones */
+.pb-safe {
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+/* Smooth number transitions */
+.metric-num {
+  font-variant-numeric: tabular-nums;
+  transition: color 0.3s;
+}
+
+/* Responsive clamp for timer font */
+@media (max-width: 360px) {
+  .timer-display { font-size: 42px !important; }
+}
+
+/* ── Page transition ─────────────────── */
+.page-enter {
+  animation: fadeUp 0.3s ease both;
+}
+
+/* ── Smooth scroll everywhere ────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Card hover lift ─────────────────── */
+.card-lift {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card-lift:hover {
+  transform: translateY(-1px);
+}
+.card-lift:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ── Input focus glow ────────────────── */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(123,111,232,0.25);
+}
+
+/* ── Hide scrollbar on overflow-x ───── */
+.no-scroll::-webkit-scrollbar { display: none; }
+.no-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Pulse dot for live sessions ─────── */
+@keyframes livePulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.5); opacity: 0.5; }
+}
+.live-dot { animation: livePulse 1.5s ease infinite; }
+
+/* ── Skeleton shimmer for loading ────── */
+@keyframes shimmer {
+  0%   { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #13132A 25%, #1A1A35 50%, #13132A 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 8px;
+}
+
+/* ── Bottom nav safe area ────────────── */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .nav-safe {
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+  }
+}
+
+/* ── Number font feature ─────────────── */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Gradient border trick ───────────── */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(123,111,232,0.5), rgba(108,92,231,0.1));
+  z-index: -1;
+}
+
+/* ── Focus ring accessibility ────────── */
+button:focus-visible {
+  outline: 2px solid #7B6FE8;
+  outline-offset: 2px;
+}
