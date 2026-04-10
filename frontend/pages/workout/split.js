@@ -100,9 +100,16 @@ export default function SplitPage() {
               <h1 className="font-bold text-xl" style={{ fontFamily: 'Syne, sans-serif', color: '#E2E2F0' }}>Workout Split</h1>
             </div>
           </div>
-          <button onClick={save} className="px-4 py-2 rounded-xl font-bold text-white btn-purple text-sm">
-            Save
-          </button>
+          <div className="flex gap-2">
+  <button onClick={() => router.push('/workout/planner')}
+    className="px-3 py-2 rounded-xl font-semibold text-sm transition-all hover:opacity-80"
+    style={{ background: 'rgba(239,159,39,0.1)', color: '#EF9F27', border: '1px solid rgba(239,159,39,0.2)' }}>
+    ⚡ Auto-generate
+  </button>
+  <button onClick={save} className="px-4 py-2 rounded-xl font-bold text-white btn-purple text-sm">
+    Save
+  </button>
+</div>
         </div>
 
         {/* Weekly grid visual */}

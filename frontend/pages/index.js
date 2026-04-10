@@ -395,8 +395,9 @@ export default function Home() {
         </ClickCard>
 
         {/* ── Quick actions row ── */}
-        <div className="grid grid-cols-4 gap-2 mt-3 animate-stagger-6">
+        <div className="grid grid-cols-5 gap-2 mt-3 animate-stagger-6">
           {[
+            { icon: '⚡', label: 'Plan', href: '/workout/planner' },
             { icon: '📊', label: 'Vault',    href: '/history' },
             { icon: '🏋️', label: 'History',  href: '/workout/history' },
             { icon: '🔔', label: 'Alerts',   href: '/notifications' },

@@ -316,6 +316,7 @@ export default function SettingsPage() {
             { icon: '🔔', label: 'Notifications', sub: 'Water, gym & meal reminders', href: '/notifications' },
             { icon: '🏋️', label: 'Workout history',  sub: 'All past sessions',         href: '/workout/history'  },
             { icon: '🗓️', label: 'Workout split',   sub: 'Customise your weekly split',  href: '/workout/split'    },
+            { icon: '⚡', label: 'Plan generator', sub: 'Build a plan in 5 steps', href: '/workout/planner' },
             { icon: '🏆', label: 'Exercise PBs',    sub: 'Track personal bests',          href: '/workout/progress' },
             { icon: '📏', label: 'Body measurements', sub: 'Measurements & body stats',  href: '/measurements'     },
             { icon: '📊', label: 'Performance vault', sub: 'Charts and analytics',  href: '/history' },
