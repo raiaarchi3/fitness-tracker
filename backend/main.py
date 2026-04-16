@@ -709,6 +709,20 @@ def init_db():
             FOREIGN KEY(user_id) REFERENCES users(id)
         );
     """)
+    existing_cols = {row[1] for row in c.execute("PRAGMA table_info(users)").fetchall()}
+    migrations = [
+        ("email",          "ALTER TABLE users ADD COLUMN email TEXT"),
+        ("password_hash",  "ALTER TABLE users ADD COLUMN password_hash TEXT NOT NULL DEFAULT ''"),
+        ("activity",       "ALTER TABLE users ADD COLUMN activity TEXT DEFAULT '1.55'"),
+        ("setup_complete", "ALTER TABLE users ADD COLUMN setup_complete INTEGER DEFAULT 0"),
+        ("created_at",     "ALTER TABLE users ADD COLUMN created_at TEXT DEFAULT (datetime('now'))"),
+    ]
+    for col, sql in migrations:
+        if col not in existing_cols:
+            try:
+                c.execute(sql)
+            except Exception:
+                pass
     conn.commit()
     conn.close()
 
